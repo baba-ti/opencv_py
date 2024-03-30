@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 
-
 image_1 = cv2.imread("image/cat.bmp")
 image_2 = cv2.imread("image/airplane.bmp")
 
@@ -25,7 +24,6 @@ th3 = cv2.adaptiveThreshold(image_1_gray,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.
 ret_2, th1_2 = cv2.threshold(image_2_gray,127,255,cv2.THRESH_BINARY)
 th2_2 = cv2.adaptiveThreshold(image_2_gray,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY,15,2)
 th3_2 = cv2.adaptiveThreshold(image_2_gray,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,15,2)
-
 
 titles = ["Original","Global","Mean","Gaussian","Original","Global","Mean","Gaussian"]
 images = [image_1_gray,th1,th2,th3,image_2_gray,th1_2,th2_2,th3_2]

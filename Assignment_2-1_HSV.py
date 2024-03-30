@@ -15,9 +15,9 @@ cv2.imshow("H_image",h)
 cv2.imshow("S_image",s)
 cv2.imshow("V_image",v)
 
-print("H channel pixel:\n",hsv[:,:,2])
-print("S channel pixel:\n",hsv[:,:,1])
-print("V channel pixel:\n",hsv[:,:,0])
+print("H channel pixel:\n",h)
+print("S channel pixel:\n",s)
+print("V channel pixel:\n",v)
 
 cv2.waitKey()
 cv2.destroyWindow()

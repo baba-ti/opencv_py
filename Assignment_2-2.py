@@ -10,9 +10,9 @@ if image_1 is None and image_2 is None:
 cv2.imshow("image 1", image_1)
 cv2.imshow("image 2", image_2)
 
-bitwis_and = cv2.bitwise_and(image_1, image_2)
-bitwis_or = cv2.bitwise_or(image_1, image_2)
-bitwis_xor = cv2.bitwise_xor(image_1, image_2)
+bitwis_and = cv2.bitwise_and(image_1, image_2) #AND 연산
+bitwis_or = cv2.bitwise_or(image_1, image_2) #OR 연산
+bitwis_xor = cv2.bitwise_xor(image_1, image_2) #XOR 연산
 
 cv2.imshow("AND", bitwis_and)
 cv2.imshow("or",bitwis_or)

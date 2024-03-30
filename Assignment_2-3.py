@@ -3,7 +3,6 @@ import sys
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 image_1 = cv2.imread("image/cat.bmp")
 image_2 = cv2.imread("image/airplane.bmp")
 
@@ -12,10 +11,8 @@ if image_1 is None and image_2 is None:
 
 image_1_gray = cv2.cvtColor(image_1, cv2.COLOR_BGR2GRAY)
 image_2_gray = cv2.cvtColor(image_2, cv2.COLOR_BGR2GRAY)
-cv2.imshow("original image 1", image_1)
-cv2.imshow("original image 2",image_2)
-cv2.imshow("image 1 gray", image_1_gray)
-cv2.imshow("image 2 gray", image_2_gray)
+cv2.imshow("original image 1", image_1), cv2.imshow("original image 2",image_2)
+cv2.imshow("image 1 gray", image_1_gray), cv2.imshow("image 2 gray", image_2_gray)
 
 #  #(입력이미지, 지정입계값, 픽섹적용 최대값, 타입)
 ret, thresh1 = cv2.threshold(image_1_gray, 127, 255, cv2.THRESH_BINARY) #임계값 넘으면 maxval로 지정, 못하면 0으로 지정

@@ -8,7 +8,7 @@ if image is None:
 
 cv2.imshow("original_RGB",image)
 
-print(image)
+print("original pixel(R,G,B):\n",image)
 
 cv2.imshow("R channel", image[:,:,2])
 cv2.imshow("G channel", image[:,:,1])
