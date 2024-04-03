@@ -18,7 +18,6 @@ print("R channel pixel:\n",image[:,:,2])
 print("G channel pixel:\n",image[:,:,1])
 print("B channel pixel:\n",image[:,:,0])
 
-
 cv2.waitKey()
 cv2.destroyAllWindows()
 
