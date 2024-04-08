@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 image_1 = cv2.imread("image/fce(salt_pepper noise).bmp")
 image_2 = cv2.imread("image/Copy of Lena-Gaussian-noise2.jpg")
 
-cv2.imshow("image 1", image_1)
-cv2.imshow("image 2", image_2)  
+cv2.imshow("Original", image_1)
+cv2.imshow("Original_2", image_2)  
 
 for ksize in (3, 7, 11, 17):
     re_image_1 = cv2.GaussianBlur(image_1, (ksize, ksize), 1.0)

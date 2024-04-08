@@ -19,7 +19,7 @@ cv2.imshow("Original/ Average/ Median", image_1_merge)
 cv2.imshow("Original_2/ Average2/ Median2", image_2_merge)
 
 
-for sigma in (2.0, 4.0, 7.0, 10.0):
+for sigma in (2, 4, 7, 10):
     re_image_1_gaussian = cv2.GaussianBlur(image_1, (5,5), sigma)
     re_image_2_gaussian = cv2.GaussianBlur(image_2, (5,5), sigma)
 
