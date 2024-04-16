@@ -9,6 +9,7 @@ image_2 = cv2.imread("image/Copy of Lena-Gaussian-noise2.jpg")
 cv2.imshow("Original", image_1)
 cv2.imshow("Original_2", image_2)  
 
+#사이즈 변경하면서 가우시안 필터 적용 분산도 1.0
 for ksize in (3, 7, 11, 17):
     re_image_1 = cv2.GaussianBlur(image_1, (ksize, ksize), 1.0)
     re_image_2 = cv2.GaussianBlur(image_2, (ksize, ksize), 1.0)

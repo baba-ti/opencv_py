@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 
 image_1 = cv2.imread("image/cat.bmp")
 image_2 = cv2.imread("image/Copy of Lena-Gaussian-noise2.jpg")
-
 image_1_gray = cv2.cvtColor(image_1, cv2.COLOR_BGR2GRAY)
 
+#캐니 에지 검출
 canny_image_1 = cv2.Canny(image_1_gray,100,200)
-canny_image_2 = cv2.Canny(image_2,100,200)
+canny_image_2 = cv2.Canny(image_2,250,500) #임계값을 적절하게 찾아서 넣어야함 (250,500)이 제일 좋았다
 
 cv2.imshow("Original",image_1_gray)
 cv2.imshow("Canny",canny_image_1)
@@ -19,6 +19,7 @@ cv2.imshow("Canny_2",canny_image_2)
 cv2.waitKey()
 cv2.destroyAllWindows()
 
+#라플라시안 에지 검출
 laplacian_image_1 = cv2.Laplacian(image_1_gray,-1)
 laplacian_image_2 = cv2.Laplacian(image_2,-1)
 
@@ -31,6 +32,7 @@ cv2.imshow("laplasian_2",laplacian_image_2)
 cv2.waitKey()
 cv2.destroyAllWindows()
 
+#LOG 에지 검출
 LoG_gaussian = cv2.GaussianBlur(image_1_gray,(3,3),1)
 LoG_laplacian = cv2.Laplacian(LoG_gaussian,-1,1)
 LoG_gaussian_2 = cv2.GaussianBlur(image_2,(3,3),1)

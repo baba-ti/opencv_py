@@ -9,6 +9,7 @@ image_2 = cv2.imread("image/Copy of Lena-Gaussian-noise2.jpg")
 cv2.imshow("Original", image_1)
 cv2.imshow("Original_2", image_2)  
 
+#사이즈 변경하면서 중간값필터 적용
 for ksize in (3, 7, 11, 17):
     re_image_1 = cv2.medianBlur(image_1, ksize)
     re_image_2 = cv2.medianBlur(image_2, ksize)
@@ -16,12 +17,8 @@ for ksize in (3, 7, 11, 17):
     desc = "Mean : {}x{}".format(ksize,ksize)
     cv2.putText(re_image_1, desc, (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, 255, 1, cv2.LINE_AA)
     cv2.putText(re_image_2, desc, (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, 255, 1, cv2.LINE_AA)
-    
-
-
     cv2.imshow("Median Filter 1", re_image_1)
     cv2.imshow("Median Filter 2", re_image_2)
-    
     cv2.waitKey()
 
 cv2.destroyAllWindows()
