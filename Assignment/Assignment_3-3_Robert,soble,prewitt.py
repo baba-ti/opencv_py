@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 
 image_1 = cv2.imread("image/cat.bmp")
 image_2 = cv2.imread("image/Copy of Lena-Gaussian-noise2.jpg")
+
 image_1_gray = cv2.cvtColor(image_1, cv2.COLOR_BGR2GRAY)
 
 #Roberts 엣지
@@ -27,7 +28,7 @@ sobel_edge_vertical_2 = cv2.filter2D(image_2,-1,sobel_vertical)
 image_1_merged_sobel = np.hstack((image_1_gray, sobel_edge_horizontal + sobel_edge_horizontal ))
 image_2_merged_sobel = np.hstack((image_2, sobel_edge_horizontal_2 + sobel_edge_vertical_2 ))
 
-# #Sobel 엣지 api이용 방법
+# #Sobel 엣지 api이용
 # sobel_dx = cv2.Sobel(image_1_gray, -1, 1, 0, ksize=3)
 # sobel_dy = cv2.Sobel(image_1_gray,-1,0,1,ksize=3)
 # sobel_dx2 = cv2.Sobel(image_2, -1, 1, 0, ksize=3)
@@ -40,6 +41,7 @@ image_2_merged_sobel = np.hstack((image_2, sobel_edge_horizontal_2 + sobel_edge_
 # cv2.waitKey()
 # cv2.destroyAllWindows()
 
+
 #Prewitt 엣지
 prewitt_horizontal = np.array([[-1,-1,-1],[0,1,0],[1,1,1]])
 prewitt_vertical = np.array([[-1,0,1],[-1,0,1],[-1,0,1]])
@@ -49,6 +51,7 @@ prewitt_edge_horizontal_2 = cv2.filter2D(image_2,-1,prewitt_horizontal)
 prewitt_edge_vertical_2 = cv2.filter2D(image_2,-1,prewitt_vertical)
 image_1_merged_prewitt = np.hstack((image_1_gray, prewitt_edge_horizontal + prewitt_edge_vertical))
 image_2_merged_prewitt = np.hstack((image_2, prewitt_edge_horizontal_2 + prewitt_edge_vertical_2))
+
 
 cv2.imshow("Roberts edge ", image_1_gray_merged_robert) 
 cv2.imshow("Roberts edge 2", image_2_merged_robert)
@@ -64,3 +67,4 @@ cv2.imshow("Prewitt edge ", image_1_merged_prewitt)
 cv2.imshow("Prewitt edge 2", image_2_merged_prewitt)
 cv2.waitKey()
 cv2.destroyAllWindows()
+  
