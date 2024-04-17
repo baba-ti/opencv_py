@@ -14,6 +14,8 @@ image_1_gray = cv2.cvtColor(image_1, cv2.COLOR_BGR2GRAY)
 image_2_gray = cv2.cvtColor(image_2, cv2.COLOR_BGR2GRAY)
 cv2.imshow("image 1 gray", image_1_gray)
 cv2.imshow("image 2 gray", image_2_gray)
+cv2.waitKey()
+cv2.destroyAllWindows()
 
 image_normalize = cv2.normalize(image_1_gray,None,0,255,cv2.NORM_MINMAX) 
 image_normalize2 = cv2.normalize(image_2_gray,None,0,255,cv2.NORM_MINMAX)
