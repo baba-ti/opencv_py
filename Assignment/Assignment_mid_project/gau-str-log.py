@@ -1,0 +1,95 @@
+import cv2
+import numpy as np
+import sys
+import matplotlib.pyplot as plt
+
+
+image_1 = cv2.imread("image/fce(salt_pepper noise).bmp")
+image_2 = cv2.imread("image/Copy of Lena-Gaussian-noise2.jpg")
+image_3 = cv2.imread("image/300px-Kodim17_noisy.jpg")
+
+image_1_gray = cv2.cvtColor(image_1, cv2.COLOR_BGR2GRAY)
+image_2_gray = cv2.cvtColor(image_2, cv2.COLOR_BGR2GRAY)
+image_3_gray = cv2.cvtColor(image_3, cv2.COLOR_BGR2GRAY)
+
+
+cv2.imshow("Original 1", image_1_gray)
+cv2.imshow("Original 2", image_2_gray)
+cv2.imshow("Original 3", image_3_gray)
+
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#가우시안 필터 3 by 3 분산도 1
+ksize = 3
+image_1_gau = cv2.GaussianBlur(image_1_gray, (ksize, ksize), 1.0)
+image_2_gau = cv2.GaussianBlur(image_2_gray, (ksize, ksize), 1.0)
+image_3_gau = cv2.GaussianBlur(image_3_gray, (ksize, ksize), 1.0)
+
+desc = "Mean : {}x{},".format(ksize,ksize)
+cv2.putText(image_1_gau, desc, (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, 255, 1, cv2.LINE_AA)
+cv2.putText(image_2_gau, desc, (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, 255, 1, cv2.LINE_AA)
+cv2.putText(image_3_gau, desc, (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, 255, 1, cv2.LINE_AA)
+
+cv2.imshow("image_1_gau", image_1_gau)
+cv2.imshow("image_2_gau", image_2_gau)
+cv2.imshow("image_3_gau", image_3_gau)
+
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#히스토그램 스트레칭
+image_1_gau_str = cv2.normalize(image_1_gau,None,0,255,cv2.NORM_MINMAX) 
+image_2_gau_str = cv2.normalize(image_2_gau,None,0,255,cv2.NORM_MINMAX)
+image_3_gau_str = cv2.normalize(image_3_gau,None,0,255,cv2.NORM_MINMAX)
+
+# hist1 = cv2.calcHist([image_1_mid],[0],None,[256],[0,256])
+# hist2 = cv2.calcHist([image_1_mid_str],[0],None,[256],[0,256])
+# hist3 = cv2.calcHist([image_2_mid],[0],None,[256],[0,256])
+# hist4 = cv2.calcHist([image_2_mid_str],[0],None,[256],[0,256])
+# hist5 = cv2.calcHist([image_3_mid],[0],None,[256],[0,256])
+# hist6 = cv2.calcHist([image_3_mid_str],[0],None,[256],[0,256])
+
+cv2.imshow("image_1_gau_str", image_1_gau_str)
+cv2.imshow("image_2_gau_str", image_2_gau_str)
+cv2.imshow("image_3_gau_str", image_3_gau_str)
+
+# plt.figure(1)
+# plt.plot(hist1, label = "image_1_avr")
+# plt.plot(hist2, label = "image_1_avr_str")
+# plt.legend(loc=2)
+
+# plt.figure(2)
+# plt.plot(hist3, label = "image_2_avr")
+# plt.plot(hist4, label = "image_2_avr_str")
+# plt.legend(loc=2)
+
+# plt.figure(3)
+# plt.plot(hist5, label = "image_3_avr")
+# plt.plot(hist6, label = "image_3_avr_str")
+# plt.legend(loc=2)
+ 
+# plt.show()
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#LOG 에지 검출
+image_1_gau_str_gau = cv2.GaussianBlur(image_1_gau_str,(3,3),1)
+image_1_gau_str_gau_lap = cv2.Laplacian(image_1_gau_str_gau,-1,1)
+image_2_gau_str_gau = cv2.GaussianBlur(image_2_gau_str,(3,3),1)
+image_2_gau_str_gau_lap = cv2.Laplacian(image_2_gau_str_gau,-1,1)
+image_3_gau_str_gau = cv2.GaussianBlur(image_3_gau_str,(3,3),1)
+image_3_gau_str_gau_lap = cv2.Laplacian(image_3_gau_str_gau,-1,1)
+
+image_1_gau_str_gau_lap_final = image_1_gau_str_gau_lap/image_1_gau_str_gau_lap.max()
+image_2_gau_str_gau_lap_final = image_2_gau_str_gau_lap/image_2_gau_str_gau_lap.max()
+image_3_gau_str_gau_lap_final = image_3_gau_str_gau_lap/image_3_gau_str_gau_lap.max()
+
+cv2.imshow("image_1_gau_str_log",image_1_gau_str_gau_lap_final)
+cv2.imshow("image_2_gau_str_log",image_2_gau_str_gau_lap_final)
+cv2.imshow("image_3_gau_str_log",image_3_gau_str_gau_lap_final)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+
+
