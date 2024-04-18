@@ -12,7 +12,6 @@ image_1_gray = cv2.cvtColor(image_1, cv2.COLOR_BGR2GRAY)
 image_2_gray = cv2.cvtColor(image_2, cv2.COLOR_BGR2GRAY)
 image_3_gray = cv2.cvtColor(image_3, cv2.COLOR_BGR2GRAY)
 
-
 cv2.imshow("Original 1", image_1_gray)
 cv2.imshow("Original 2", image_2_gray)
 cv2.imshow("Original 3", image_3_gray)
@@ -74,15 +73,21 @@ cv2.imshow("image_3_avr_str", image_3_avr_str)
 cv2.waitKey()
 cv2.destroyAllWindows()
 
-#케니 엣지
-image_1_avr_str_canny = cv2.Canny(image_1_avr_str,100,200)
-image_2_avr_str_canny = cv2.Canny(image_2_avr_str,200,300) 
-image_3_avr_str_canny = cv2.Canny(image_3_avr_str,100,200) 
+#LOG 에지 검출
+image_1_avr_str_gau = cv2.GaussianBlur(image_1_avr_str,(3,3),1)
+image_1_avr_str_gau_lap = cv2.Laplacian(image_1_avr_str_gau,-1,1)
+image_2_avr_str_gau = cv2.GaussianBlur(image_2_avr_str,(3,3),1)
+image_2_avr_str_gau_lap = cv2.Laplacian(image_2_avr_str_gau,-1,1)
+image_3_avr_str_gau = cv2.GaussianBlur(image_3_avr_str,(3,3),1)
+image_3_avr_str_gau_lap = cv2.Laplacian(image_3_avr_str_gau,-1,1)
 
-cv2.imshow("image_1_avr_str_canny",image_1_avr_str_canny)
-cv2.imshow("image_2_avr_str_canny",image_2_avr_str_canny)
-cv2.imshow("image_3_avr_str_canny",image_3_avr_str_canny)
+image_1_avr_str_gau_lap_final = image_1_avr_str_gau_lap/image_1_avr_str_gau_lap.max()
+image_2_avr_str_gau_lap_final = image_2_avr_str_gau_lap/image_2_avr_str_gau_lap.max()
+image_3_avr_str_gau_lap_final = image_3_avr_str_gau_lap/image_3_avr_str_gau_lap.max()
+
+cv2.imshow("image_1_avr_str_log",image_1_avr_str_gau_lap_final)
+cv2.imshow("image_2_avr_str_log",image_2_avr_str_gau_lap_final)
+cv2.imshow("image_3_avr_str_log",image_3_avr_str_gau_lap_final)
 cv2.waitKey()
-cv2.destroyAllWindows() 
-
+cv2.destroyAllWindows()
 
