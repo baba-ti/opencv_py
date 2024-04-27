@@ -88,6 +88,18 @@ image_3_gau_str_gau_lap_final = image_3_gau_str_gau_lap/image_3_gau_str_gau_lap.
 cv2.imshow("image_1_gau_str_log",image_1_gau_str_gau_lap_final)
 cv2.imshow("image_2_gau_str_log",image_2_gau_str_gau_lap_final)
 cv2.imshow("image_3_gau_str_log",image_3_gau_str_gau_lap_final)
+
+# LOG 에지 검출 후 저장 전에 수정 -> 정규화 하여 0,1의 값으로만 나와 이미지 저장시 다 0으로 변환
+image_1_gau_str_gau_lap_final = np.uint8(255 * image_1_gau_str_gau_lap_final)
+image_2_gau_str_gau_lap_final = np.uint8(255 * image_2_gau_str_gau_lap_final)
+image_3_gau_str_gau_lap_final = np.uint8(255 * image_3_gau_str_gau_lap_final)
+
+cv2.imwrite("mid_project_result/image_1_gau_str_log.jpg", image_1_gau_str_gau_lap_final)
+cv2.imwrite("mid_project_result/image_2_gau_str_log.jpg", image_2_gau_str_gau_lap_final)
+cv2.imwrite("mid_project_result/image_3_gau_str_log.jpg", image_3_gau_str_gau_lap_final)
+
+
+
 cv2.waitKey()
 cv2.destroyAllWindows()
 

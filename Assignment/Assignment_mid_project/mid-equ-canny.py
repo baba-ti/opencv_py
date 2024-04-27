@@ -74,6 +74,11 @@ image_3_mid_equ_canny = cv2.Canny(image_3_mid_equ,100,200)
 cv2.imshow("image_1_mid_equ_canny",image_1_mid_equ_canny)
 cv2.imshow("image_2_mid_equ_canny",image_2_mid_equ_canny)
 cv2.imshow("image_3_mid_equ_canny",image_3_mid_equ_canny)
+
+cv2.imwrite("mid_project_result/image_1_mid_equ_canny.jpg", image_1_mid_equ_canny)
+cv2.imwrite("mid_project_result/image_2_mid_equ_canny.jpg", image_2_mid_equ_canny)
+cv2.imwrite("mid_project_result/image_3_mid_equ_canny.jpg", image_3_mid_equ_canny)
+
 cv2.waitKey()
 cv2.destroyAllWindows() 
 
