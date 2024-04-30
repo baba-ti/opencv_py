@@ -46,33 +46,10 @@ image_1_mid_str = cv2.normalize(image_1_mid,None,0,255,cv2.NORM_MINMAX)
 image_2_mid_str = cv2.normalize(image_2_mid,None,0,255,cv2.NORM_MINMAX)
 image_3_mid_str = cv2.normalize(image_3_mid,None,0,255,cv2.NORM_MINMAX)
 
-# hist1 = cv2.calcHist([image_1_mid],[0],None,[256],[0,256])
-# hist2 = cv2.calcHist([image_1_mid_str],[0],None,[256],[0,256])
-# hist3 = cv2.calcHist([image_2_mid],[0],None,[256],[0,256])
-# hist4 = cv2.calcHist([image_2_mid_str],[0],None,[256],[0,256])
-# hist5 = cv2.calcHist([image_3_mid],[0],None,[256],[0,256])
-# hist6 = cv2.calcHist([image_3_mid_str],[0],None,[256],[0,256])
-
 cv2.imshow("image_1_mid_str", image_1_mid_str)
 cv2.imshow("image_2_mid_str", image_2_mid_str)
 cv2.imshow("image_3_mid_str", image_3_mid_str)
 
-# plt.figure(1)
-# plt.plot(hist1, label = "image_1_avr")
-# plt.plot(hist2, label = "image_1_avr_str")
-# plt.legend(loc=2)
-
-# plt.figure(2)
-# plt.plot(hist3, label = "image_2_avr")
-# plt.plot(hist4, label = "image_2_avr_str")
-# plt.legend(loc=2)
-
-# plt.figure(3)
-# plt.plot(hist5, label = "image_3_avr")
-# plt.plot(hist6, label = "image_3_avr_str")
-# plt.legend(loc=2)
- 
-# plt.show()
 cv2.waitKey()
 cv2.destroyAllWindows()
 

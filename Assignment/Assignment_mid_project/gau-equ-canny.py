@@ -47,19 +47,6 @@ cv2.imshow("image_1_gau_equ", image_1_gau_equ)
 cv2.imshow("image_2_gau_equ", image_2_gau_equ)
 cv2.imshow("image_3_gau_equ", image_3_gau_equ)
 
-# plt.figure("image 1")
-# img1_hist1 = cv2.calcHist(image_1_gray,[0],None,[256],[0,256])
-# plt.subplot(2,1,1), plt.plot(img1_hist1)
-# img1_hist2 = cv2.calcHist(image_1_equalize,[0],None,[256],[0,256])
-# plt.subplot(2,1,2), plt.plot(img1_hist2)
-
-# plt.figure("image 2")
-# img2_hist1 = cv2.calcHist(image_2_gray,[0],None,[256],[0,256])
-# plt.subplot(2,1,1), plt.plot(img2_hist1)
-# img2_hist2 = cv2.calcHist(image_2_equalize,[0],None,[256],[0,256])
-# plt.subplot(2,1,2), plt.plot(img2_hist2)
-
-# plt.show()
 cv2.waitKey()
 cv2.destroyAllWindows()
 
