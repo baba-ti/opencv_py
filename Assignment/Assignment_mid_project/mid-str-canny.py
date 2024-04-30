@@ -44,7 +44,7 @@ cv2.destroyAllWindows()
 #히스토그램 스트레칭
 image_1_mid_str = cv2.normalize(image_1_mid,None,0,255,cv2.NORM_MINMAX) 
 image_2_mid_str = cv2.normalize(image_2_mid,None,0,255,cv2.NORM_MINMAX)
-image_3_mid_str = cv2.normalize(image_3_mid,None,0,255,cv2.NORM_MINMAX)'
+image_3_mid_str = cv2.normalize(image_3_mid,None,0,255,cv2.NORM_MINMAX)
 
 cv2.imshow("image_1_mid_str", image_1_mid_str)
 cv2.imshow("image_2_mid_str", image_2_mid_str)
