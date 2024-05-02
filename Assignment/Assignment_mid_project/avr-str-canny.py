@@ -3,7 +3,6 @@ import numpy as np
 import sys
 import matplotlib.pyplot as plt
 
-
 image_1 = cv2.imread("image/fce(salt_pepper noise).bmp")
 image_2 = cv2.imread("image/Copy of Lena-Gaussian-noise2.jpg")
 image_3 = cv2.imread("image/300px-Kodim17_noisy.jpg")
@@ -11,7 +10,6 @@ image_3 = cv2.imread("image/300px-Kodim17_noisy.jpg")
 image_1_gray = cv2.cvtColor(image_1, cv2.COLOR_BGR2GRAY)
 image_2_gray = cv2.cvtColor(image_2, cv2.COLOR_BGR2GRAY)
 image_3_gray = cv2.cvtColor(image_3, cv2.COLOR_BGR2GRAY)
-
 
 cv2.imshow("Original 1", image_1_gray)
 cv2.imshow("Original 2", image_2_gray)
@@ -32,8 +30,7 @@ cv2.putText(image_1_avr, text, (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, 255, 1, c
 cv2.putText(image_2_avr, text, (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, 255, 1, cv2.LINE_AA)
 cv2.putText(image_3_avr, text, (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, 255, 1, cv2.LINE_AA)
     
-cv2.imshow("image_1_avr", image_1_avr)
-cv2.imshow("image_2_avr", image_2_avr)
+cv2.imshow("image_1_avr", image_1_avr),cv2.imshow("image_2_avr", image_2_avr)
 cv2.imshow("image_3_avr", image_3_avr)
 
 cv2.waitKey()
