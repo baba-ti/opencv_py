@@ -50,19 +50,6 @@ cv2.imshow("image_1_mid_equ", image_1_mid_equ)
 cv2.imshow("image_2_mid_equ", image_2_mid_equ)
 cv2.imshow("image_3_mid_equ", image_3_mid_equ)
 
-# plt.figure("image 1")
-# img1_hist1 = cv2.calcHist(image_1_gray,[0],None,[256],[0,256])
-# plt.subplot(2,1,1), plt.plot(img1_hist1)
-# img1_hist2 = cv2.calcHist(image_1_equalize,[0],None,[256],[0,256])
-# plt.subplot(2,1,2), plt.plot(img1_hist2)
-
-# plt.figure("image 2")
-# img2_hist1 = cv2.calcHist(image_2_gray,[0],None,[256],[0,256])
-# plt.subplot(2,1,1), plt.plot(img2_hist1)
-# img2_hist2 = cv2.calcHist(image_2_equalize,[0],None,[256],[0,256])
-# plt.subplot(2,1,2), plt.plot(img2_hist2)
-
-# plt.show()
 cv2.waitKey()
 cv2.destroyAllWindows()
 
@@ -74,6 +61,11 @@ image_3_mid_equ_canny = cv2.Canny(image_3_mid_equ,100,200)
 cv2.imshow("image_1_mid_equ_canny",image_1_mid_equ_canny)
 cv2.imshow("image_2_mid_equ_canny",image_2_mid_equ_canny)
 cv2.imshow("image_3_mid_equ_canny",image_3_mid_equ_canny)
+
+cv2.imwrite("mid_project_result/image_1_mid_equ_canny.jpg", image_1_mid_equ_canny)
+cv2.imwrite("mid_project_result/image_2_mid_equ_canny.jpg", image_2_mid_equ_canny)
+cv2.imwrite("mid_project_result/image_3_mid_equ_canny.jpg", image_3_mid_equ_canny)
+
 cv2.waitKey()
 cv2.destroyAllWindows() 
 

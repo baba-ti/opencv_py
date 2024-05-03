@@ -12,7 +12,6 @@ image_1_gray = cv2.cvtColor(image_1, cv2.COLOR_BGR2GRAY)
 image_2_gray = cv2.cvtColor(image_2, cv2.COLOR_BGR2GRAY)
 image_3_gray = cv2.cvtColor(image_3, cv2.COLOR_BGR2GRAY)
 
-
 cv2.imshow("Original 1", image_1_gray)
 cv2.imshow("Original 2", image_2_gray)
 cv2.imshow("Original 3", image_3_gray)
@@ -26,12 +25,10 @@ image_1_mid = cv2.medianBlur(image_1_gray, ksize)
 image_2_mid = cv2.medianBlur(image_2_gray, ksize)
 image_3_mid = cv2.medianBlur(image_3_gray, ksize)
 
-
 desc = "Mean : {}x{}".format(ksize,ksize)
 cv2.putText(image_1_mid, desc, (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, 255, 1, cv2.LINE_AA)
 cv2.putText(image_2_mid, desc, (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, 255, 1, cv2.LINE_AA)
 cv2.putText(image_3_mid, desc, (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1.0, 255, 1, cv2.LINE_AA)
-
 
 cv2.imshow("image_1_mid", image_1_mid)
 cv2.imshow("image_2_mid", image_2_mid)
@@ -40,39 +37,15 @@ cv2.imshow("image_3_mid", image_3_mid)
 cv2.waitKey()
 cv2.destroyAllWindows()
 
-
 #히스토그램 스트레칭
 image_1_mid_str = cv2.normalize(image_1_mid,None,0,255,cv2.NORM_MINMAX) 
 image_2_mid_str = cv2.normalize(image_2_mid,None,0,255,cv2.NORM_MINMAX)
 image_3_mid_str = cv2.normalize(image_3_mid,None,0,255,cv2.NORM_MINMAX)
 
-# hist1 = cv2.calcHist([image_1_mid],[0],None,[256],[0,256])
-# hist2 = cv2.calcHist([image_1_mid_str],[0],None,[256],[0,256])
-# hist3 = cv2.calcHist([image_2_mid],[0],None,[256],[0,256])
-# hist4 = cv2.calcHist([image_2_mid_str],[0],None,[256],[0,256])
-# hist5 = cv2.calcHist([image_3_mid],[0],None,[256],[0,256])
-# hist6 = cv2.calcHist([image_3_mid_str],[0],None,[256],[0,256])
-
 cv2.imshow("image_1_mid_str", image_1_mid_str)
 cv2.imshow("image_2_mid_str", image_2_mid_str)
 cv2.imshow("image_3_mid_str", image_3_mid_str)
 
-# plt.figure(1)
-# plt.plot(hist1, label = "image_1_avr")
-# plt.plot(hist2, label = "image_1_avr_str")
-# plt.legend(loc=2)
-
-# plt.figure(2)
-# plt.plot(hist3, label = "image_2_avr")
-# plt.plot(hist4, label = "image_2_avr_str")
-# plt.legend(loc=2)
-
-# plt.figure(3)
-# plt.plot(hist5, label = "image_3_avr")
-# plt.plot(hist6, label = "image_3_avr_str")
-# plt.legend(loc=2)
- 
-# plt.show()
 cv2.waitKey()
 cv2.destroyAllWindows()
 
@@ -91,6 +64,16 @@ image_3_mid_str_gau_lap_final = image_3_mid_str_gau_lap/image_3_mid_str_gau_lap.
 cv2.imshow("image_1_mid_str_log",image_1_mid_str_gau_lap_final)
 cv2.imshow("image_2_mid_str_log",image_2_mid_str_gau_lap_final)
 cv2.imshow("image_3_mid_str_log",image_3_mid_str_gau_lap_final)
+
+# LOG 에지 검출 후 저장 전에 수정 -> 정규화 하여 0,1의 값으로만 나와 이미지 저장시 다 0으로 변환
+image_1_mid_str_gau_lap_final = np.uint8(255 * image_1_mid_str_gau_lap_final)
+image_2_mid_str_gau_lap_final = np.uint8(255 * image_2_mid_str_gau_lap_final)
+image_3_mid_str_gau_lap_final = np.uint8(255 * image_3_mid_str_gau_lap_final)
+
+cv2.imwrite("mid_project_result/image_1_mid_str_log.jpg", image_1_mid_str_gau_lap_final)
+cv2.imwrite("mid_project_result/image_2_mid_str_log.jpg", image_2_mid_str_gau_lap_final)
+cv2.imwrite("mid_project_result/image_3_mid_str_log.jpg", image_3_mid_str_gau_lap_final)
+
 cv2.waitKey()
 cv2.destroyAllWindows()
 
