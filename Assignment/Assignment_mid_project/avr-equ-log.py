@@ -1,13 +1,15 @@
+#%%
 import cv2
 import numpy as np
 import sys
 import matplotlib.pyplot as plt
-
+ 
 
 image_1 = cv2.imread("image/fce(salt_pepper noise).bmp")
 image_2 = cv2.imread("image/Copy of Lena-Gaussian-noise2.jpg")
 image_3 = cv2.imread("image/300px-Kodim17_noisy.jpg")
 
+#%%
 image_1_gray = cv2.cvtColor(image_1, cv2.COLOR_BGR2GRAY)
 image_2_gray = cv2.cvtColor(image_2, cv2.COLOR_BGR2GRAY)
 image_3_gray = cv2.cvtColor(image_3, cv2.COLOR_BGR2GRAY)
@@ -80,4 +82,5 @@ cv2.imwrite("mid_project_result/image_3_avr_equ_gau_lap.jpg", image_3_avr_equ_ga
 
 cv2.waitKey()
 cv2.destroyAllWindows()
+
 
