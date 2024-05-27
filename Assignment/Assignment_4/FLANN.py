@@ -7,7 +7,7 @@ gray_1 = cv2.cvtColor(img_1,cv2.COLOR_BGR2GRAY)
 img_2 = cv2.imread("image/6.jpg")
 gray_2 = cv2.cvtColor(img_2,cv2.COLOR_BGR2GRAY)
 
-sift_1 = cv2.SIFT_create()
+sift_1 = cv2.SIFT_create(
 sift_2 = cv2.SIFT_create()
 
 keypoints_1, descriptors_1 = sift_1.detectAndCompute(gray_1, None)
