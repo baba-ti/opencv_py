@@ -2,13 +2,13 @@ import cv2
 import numpy as np
 import time
 
-img_1 = cv2.imread("image/5.jpg")
+img_1 = cv2.imread("image/skates1.png")
 gray_1 = cv2.cvtColor(img_1,cv2.COLOR_BGR2GRAY)
-img_2 = cv2.imread("image/6.jpg")
+img_2 = cv2.imread("image/skates2.png")
 gray_2 = cv2.cvtColor(img_2,cv2.COLOR_BGR2GRAY)
 
-sift_1 = cv2.SIFT_create()
-sift_2 = cv2.SIFT_create()
+sift_1 = cv2.BRISK_create()
+sift_2 = cv2.BRISK_create()
 
 keypoints_1, descriptors_1 = sift_1.detectAndCompute(gray_1, None)
 keypoints_2, descriptors_2 = sift_2.detectAndCompute(gray_2, None)
@@ -39,7 +39,7 @@ box_2 = cv2.perspectiveTransform(box_1,H)
 img_match = np.empty((max(h1,h2),w1+w2,3),dtype=np.uint8)
 cv2.drawMatches(img_1,keypoints_1,img_2,keypoints_2,good_match,img_match,flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
 cv2.imshow("Matches_RANSAC",img_match)
-cv2.imwrite("result/RANSAC_match_1.png", img_match)
+cv2.imwrite("result/RANSAC_match_BRISK.png", img_match)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
